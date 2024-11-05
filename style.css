@@ -1,0 +1,588 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --primary-color:  #047aed;
+    --secondary-color:  #1c3fe8;
+    --dark-color:  #002240;
+    --light-color: #f4f4f4;
+    --success-color: #5cb85c;
+    --error-color: #d9534f;
+}
+body{
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+h1, h2{
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 10px 0; /** means top and bottom, left and right **/
+}
+p{
+    margin: 10px 0;
+}
+img{
+    width: 100%;
+}
+
+code, pre{
+    background: #333;
+    color: #fff;
+    padding: 10px;
+}
+/* Navbar styling */
+.navbar{
+    background-color: #047aed;
+    color: #fff;
+    height: 70px;
+}
+.navbar ul {
+    display: flex;
+}
+.navbar a {
+    color: #fff;
+    padding: 10px;
+    margin: 0 5px;
+}
+.navbar a:hover {
+    border-bottom: 2px #fff solid;
+}
+.navbar .flex {
+    justify-content: space-between;
+}
+/* Showcase */
+.img {
+    max-width: 100px;
+}
+.showcase{
+    height: 400px;
+    background-color: var(--primary-color);
+    color: #fff;
+    position: relative;/* adding this to it so that if we wanna postion anything absolute to showcase we can  */
+}
+.showcase h1{
+    font-size: 40px;
+
+}
+.showcase p{
+    margin: 20px 0;
+}
+.showcase .grid{
+    overflow: visible;
+    grid-template-columns: 55% 45%;
+    gap: 30px;
+}
+.showcase-text{
+    animation: slideInFromLeft 1s ease-in;
+}
+.showcase-form {
+    position: relative; /* top property  */
+    top: 60px;
+    height: 400px;
+    width: 450px;
+    padding: 40px;
+    z-index: 100;/* making sure its always in front or ontop of the other element  */
+    animation: slideInFromRight 1s ease-in;
+}
+.showcase-form .form-control{
+    margin: 30px 0;
+}
+.showcase-form input[type='text'], 
+.showcase-form input[type='email'],
+.showcase-form input[type='password']{
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+    width: 100%;
+    padding: 3px;
+    font-size: 10px;
+}
+.showcase-form input:focus{ /* Used for onclicking or when u click on the element */
+    outline: none;
+    
+}
+.name-err, .email-err, .phone-err, .password-err,{
+    display: none;
+    width: 100%;
+    font-size: 0.5px;
+
+}
+.showcase::before, .showcase::after{
+    content: '';
+    position: absolute;
+    height: 100px;
+    bottom: -70px;
+    right: 0;
+    left: 0;
+    background-color:#fff;
+    transform: skewY(-2deg);
+    -webkit-transform: skewY(-2deg);/** just to make sure it works on all browsers **/
+    -moz-transform: skewY(-2deg);
+    -ms-transform: skewY(-2deg);
+}
+/* Stats */
+.stats{
+    padding-top: 100px;
+    animation: slideInFromBottom 1s ease-in;
+}
+.starts {
+    max-width: 500px;
+    margin: auto;
+}
+.stats .starts{
+    margin: auto;
+}
+.stats .grid h3{
+    font-size: 35px;
+    font-weight: bold;
+}
+.stats .grid p {
+    font-size: 20px;
+    font-weight: ;
+
+}
+/* CLI */
+.cli .grid {
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.cli .grid > *:first-child{
+    grid-column: 1/ span 2; /** used to expand the first child of the grid tag to 2**/
+    grid-row: 1/ span 2;
+}
+
+/* CLOUD  */
+
+.cloud .grid{
+    grid-template-columns: 4fr 3fr;
+}
+
+/* LAnguages */
+.languages .flex{
+    flex-wrap: wrap;
+}
+
+.languages .card{
+    text-align: center;
+    margin: 18px 10px 40px;
+    transition: transform 0.2s ease-in;
+}
+.languages .card h4{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.languages .card:hover{
+    transform: translateY(-15px);
+}
+
+/* Features Html */
+
+.features-head img  {
+    width: 200px;
+    justify-self: flex-end; /* For justifying just the item  */
+}
+.features-sub-head img{
+    width: 300px;
+    justify-self: flex-end;
+}
+.features-main .card {
+    
+}
+
+.features-main .card > i {
+    margin-right: 20px;
+}
+
+.features-main .grid > *:first-child{
+    grid-column: 1/ span 3; 
+}
+.features-main .grid > *:nth-child(2){
+    grid-column: 1/ span 2;
+}
+
+/* Docs html */
+
+.docs-head img {
+    width: 200px;
+    justify-self: flex-end; /* For justifying just the item  */
+}
+
+.docs-main h3 {
+    margin: 20px 0;
+}
+
+.docs-main .grid {
+    grid-template-columns: 1fr 2fr;
+    align-items: flex-start;
+}
+.docs-main nav li {
+    font-size: 17px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px #ccc solid;
+}
+.docs-main a:hover{
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
+/* Footer */
+
+.footer .flex a {
+    margin: 0 10px;
+}
+
+
+/* TABLET AND UNDER MEDIA QUERY  */
+@media (max-width: 768px) {
+    .grid,
+    .showcase .grid , 
+    .stats .grid,
+    .cli .grid, 
+    .cloud .grid, .features-sub-head .grid , .features-head .grid 
+    .features-main .grid  .grid-3, .docs-main .grid{
+        grid-template-columns: 1fr;
+        grid-template-rows:  1fr;  /* purpose is to stack all grid tag sections in one 1 fraction  */
+    }
+
+    .showcase{
+        height: auto; /* setting the height to auto makes it takes up the amount of the container  */
+    }
+    .showcase-text{
+        text-align: center;
+        margin-top: 40px;
+    }
+    .showcase-form {
+        justify-self: center ; /* justify-self is used for just an item in grid or flex to justify just that item not justtify-content which is used for flex or grid container  */
+        margin: auto;
+    }
+
+    .cli .grid > *:first-child{
+        grid-column: 1; 
+        grid-row: 1;
+    }
+    .features-head, .features-sub-head, .docs-head{
+        text-align: center;
+    }
+    .features-head img, .features-sub-head img, .docs-head img{
+        justify-self: center;
+    }
+    .features-main .grid > *:first-child,
+    .features-main .grid > *:nth-child(2),
+    .features-main .grid > *:nth-child(3),
+    .features-main .grid > *:nth-child(4),
+    .features-main .grid > *:nth-child(5),
+    .features-main .grid > *:nth-child(6) {
+        grid-column: 1;
+         
+       
+    }
+    .features-main .grid{
+        justify-content: center ;
+        width: ;
+    }
+    .card .grid{
+        width: 100%;
+        overflow-x: ;
+    }
+   
+}
+
+/* MOBILE QUERY */
+@media (max-width:500px){
+    .features-head .grid , .features-main .grid .grid-3, .footer .grid .grid-3, .docs-main .grid, .docs-head .grid
+     {
+        grid-template-columns: 1fr;
+        grid-template-rows:  1fr;
+    }
+   
+    .navbar{
+        height: 110px;
+    }
+    .navbar .flex {
+        flex-direction: column;
+    }
+    .navbar ul {
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Utilites -meaning classes that we use all around the website  */
+.container{
+    max-width: 1100px;/** used for setting specified max width for a tag **/
+    margin: 0 auto ;  /** means top and bottom, left and right { CENTER}**/
+    overflow: auto; /**  when an element's content does not fit entirely inside the element box**/
+    padding: 0 40px ;
+}
+.card{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    color: #333;
+    padding: 20px;
+    margin: 10px;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    cursor: pointer;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+.btn-outline{
+    background-color: transparent;
+    border: 1px solid #fff;
+}
+.btn:hover{
+    transform: scale(0.98);
+}
+
+/* BACKGROUNDS & COLORED BUTTONS */
+.bg-primary, .btn-primary{
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.bg-secondary, .btn-secondary{
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+
+.bg-dark, .btn-dark{
+    background-color: var(--dark-color);
+    color: #fff;
+}
+
+
+
+
+.bg-light, .btn-light{
+    background-color: var(--light-color);
+    color: #333;
+}
+
+.bg-primary a, .btn-primary a, .bg-secondary a, .btn-secondary a, .bg-dark a, .btn-dark a {
+    color: #fff;
+}
+
+/* Text-colors */
+
+
+.text-primary{
+   color: var(--primary-color);
+    
+}
+
+.text-secondary{
+   color: var(--secondary-color);
+   
+}
+
+
+.text-dark{
+    color: var(--dark-color);
+    
+}
+
+
+
+
+.text-light{
+   color: var(--light-color);
+   
+}
+
+
+/* Text sizes */
+
+.lead{
+    font-size: 20px;
+}
+.sm{
+    font-size: 1rem;
+}
+.md{
+    font-size: 2rem;
+}
+.lg{
+    font-size: 3rem;
+}
+.xl{
+    font-size: 4rem;
+}
+
+
+
+
+.text-center{
+    text-align: center;
+
+}
+
+/* Alert class */
+
+.alert {
+    background-color: var(--light-color);
+    padding: 10px 20px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.alert i {
+    margin-right: 10px;
+}
+
+.alert-success {
+    background-color: var(--success-color);
+    color: #fff;
+}
+.alert-error{
+    background-color: var(--error-color);
+    color: #fff;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);/**  we can use px (300px,200px ) or percentages or fractions (2fr, 1fr) or making it even (repeat(2, 1fr))**/
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.grid-3{
+    grid-template-columns: repeat(3, 1fr); 
+   
+}
+/* Margin */
+
+.my-1{
+    margin: 1rem 0;
+}
+.my-2{
+    margin: 1.5rem 0;
+}
+.my-3{
+    margin: 2rem 0;
+}
+.my-4{
+    margin: 3rem 0;
+}
+.my-5{
+    margin: 4rem 0;
+}
+
+.m-1{
+    margin: 1rem;
+}
+.m-2{
+    margin: 1.5rem;
+}
+.m-3{
+    margin: 2rem;
+}
+.m-4{
+    margin: 3rem;
+}
+.m-5{
+    margin: 4rem;
+}
+
+/* PAdding */
+
+.py-1{
+    padding: 1rem 0;
+}
+.py-2{
+    padding: 1.5rem 0;
+}
+.py-3{
+    padding: 2rem 0;
+}
+.py-4{
+    padding: 3rem 0;
+}
+.py-5{
+    padding: 4rem 0;
+}
+.p-1{
+    margin: 1rem;
+}
+.p-2{
+    padding: 1.5rem;
+}
+.p-3{
+    padding: 2rem;
+}
+.p-4{
+    padding: 3rem;
+}
+.p-5{
+    padding: 4rem;
+}
